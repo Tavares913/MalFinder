@@ -57,7 +57,12 @@ const ByTree = () => {
     }
 
     try {
-      const response1 = await axios.post("/api/searchByTree");
+      const response1 = await axios.post("/api/searchByTree", {
+        rootUser: "Tavares913",
+        searchUser: "snoopydragon",
+        searchLimit: 1,
+        sleepTime: 1000,
+      });
       console.log(response1);
 
       return;
