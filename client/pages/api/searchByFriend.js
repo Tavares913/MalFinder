@@ -12,9 +12,9 @@ const searchByFriend = async (req, res) => {
   const rootProfileData = await getProfileData(rootUser);
 
   if (!rootProfileData) {
-    res.json({
+    return res.json({
       message:
-        "Couldn't perform search. Please verify that you entered your (not the search user's) username correctly",
+        "Couldn't perform search. Please verify that you entered the data correctly",
     });
   }
 
@@ -22,7 +22,7 @@ const searchByFriend = async (req, res) => {
   const searchUserFriendsData = await getFriendsData(searchUser);
 
   if (!searchUserFriendsData) {
-    res.json({
+    return res.json({
       message:
         "Couldn't perform search. Please verify that you entered the search user's username correctly",
     });

@@ -27,13 +27,16 @@ const swap = (arr, a, b) => {
 };
 
 const searchByTree = async (req, res) => {
+  if (req.method != "POST") {
+    return res.send("hello");
+  }
   const { rootUser, searchUser, searchLimit, sleepTime } = req.body;
   const rootUserProfileData = await getProfileData(rootUser);
 
-  if (!rootUserProfileData) {
+  if (!rootUserProfileData || !searchLimit) {
     return res.json({
       message:
-        "Couldn't perform search. Please verify that you entered your (not the search user's) username correctly",
+        "Couldn't perform search. Please verify that you entered your username and search limit correctly.",
     });
   }
 
@@ -61,6 +64,9 @@ const searchByTree = async (req, res) => {
     await sleep(sleepTime);
 
     const curUserProfileData = await getProfileData(curUser);
+    if (!curUserProfileData) {
+      continue;
+    }
     const curUserFriends = getFriendsFromProfile(curUserProfileData);
     const curUserFavourites = getFavourites(curUserProfileData);
     const curComparedFavourites = sameFavourites(
