@@ -57,7 +57,12 @@ const ByTree = () => {
     }
 
     try {
-      const { data: comparedFavourites } = await axios.get(
+      const response1 = await axios.post("/api/searchByTree");
+      console.log(response1);
+
+      return;
+
+      const { data: comparedFavourites } = await axios.post(
         "/api/searchByTree",
         {
           rootUser,
