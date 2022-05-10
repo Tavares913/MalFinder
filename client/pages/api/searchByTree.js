@@ -90,6 +90,7 @@ const searchByTree = async (req, res) => {
     removeFirst(queue);
   }
 
+  console.log("arrived here");
   return res.send("hello");
 
   const sortedComparedFavourites = profilesVisited.sort((elem1, elem2) => {

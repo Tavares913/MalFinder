@@ -86,7 +86,8 @@ const ByTree = () => {
       setDisplayForm(false);
       setIsLoading(false);
     } catch (e) {
-      setErrorMessage(e.message || e);
+      console.log(e);
+      setErrorMessage(e.message);
     }
   };
 
