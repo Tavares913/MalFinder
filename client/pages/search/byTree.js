@@ -59,6 +59,8 @@ const ByTree = () => {
     try {
       const { testData } = await axios.get("/api/searchByTree");
       console.log(testData);
+      JSON.stringify(testData);
+      console.log(testData);
       return;
       const { data: comparedFavourites } = await axios.post(
         "/api/searchByTree",
