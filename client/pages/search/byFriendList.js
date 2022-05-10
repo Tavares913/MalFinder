@@ -106,7 +106,7 @@ const ByFriendList = () => {
         {isLoading && <div className={classes["loading-spinner"]}></div>}
         {searchTimeMessage > 0 && (
           <p>
-            It'll take about {searchTimeMessage} seconds to complete your
+            It&apos;ll take about {searchTimeMessage} seconds to complete your
             search.
           </p>
         )}

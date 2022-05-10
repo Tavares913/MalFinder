@@ -42,7 +42,7 @@ const ComparedFavourite = (props) => {
         {animeSame.length > 0 && (
           <ol>
             {animeSame.map((anime, index) => (
-              <p>
+              <p key={index}>
                 {index + 1}. {anime}
               </p>
             ))}
@@ -53,7 +53,7 @@ const ComparedFavourite = (props) => {
         {mangaSame.length > 0 && (
           <ol>
             {mangaSame.map((manga, index) => (
-              <p>
+              <p key={index}>
                 {index + 1}. {manga}
               </p>
             ))}
@@ -64,7 +64,7 @@ const ComparedFavourite = (props) => {
         {charactersSame.length > 0 && (
           <ol>
             {charactersSame.map((character, index) => (
-              <p>
+              <p key={index}>
                 {index + 1}. {character.name} ({character.source})
               </p>
             ))}
@@ -75,7 +75,7 @@ const ComparedFavourite = (props) => {
         {peopleSame.length > 0 && (
           <ol>
             {peopleSame.map((person, index) => (
-              <p>
+              <p key={index}>
                 {index + 1}. {person}
               </p>
             ))}
