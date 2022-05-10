@@ -11,7 +11,7 @@ const searchByFriend = async (req, res) => {
 
   const rootProfileData = await getProfileData(rootUser);
 
-  if (!rootProfileData) {
+  if (!rootProfileData || !searchLimit) {
     return res.json({
       message:
         "Couldn't perform search. Please verify that you entered the data correctly",
@@ -37,7 +37,7 @@ const searchByFriend = async (req, res) => {
       continue;
     }
 
-    await sleep(sleepTime);
+    await sleep(sleepTime || 2000);
     const curFriendProfileData = await getProfileData(friend);
 
     if (!curFriendProfileData) {
@@ -72,7 +72,7 @@ const searchByFriend = async (req, res) => {
     return 1;
   });
 
-  res.json(comparedFavourites);
+  return res.json(comparedFavourites);
 };
 
 export default searchByFriend;

@@ -27,6 +27,7 @@ const swap = (arr, a, b) => {
 };
 
 const searchByTree = async (req, res) => {
+  console.log("request has reached me");
   if (req.method != "POST") {
     return res.send("hello");
   }
@@ -61,7 +62,7 @@ const searchByTree = async (req, res) => {
       continue;
     }
 
-    await sleep(sleepTime);
+    await sleep(sleepTime || 2000);
 
     const curUserProfileData = await getProfileData(curUser);
     if (!curUserProfileData) {
@@ -102,7 +103,7 @@ const searchByTree = async (req, res) => {
     return 1;
   });
 
-  res.json(sortedComparedFavourites);
+  return res.json(sortedComparedFavourites);
 };
 
 export default searchByTree;

@@ -56,31 +56,38 @@ const ByTree = () => {
       return;
     }
 
-    const { data: comparedFavourites } = await axios.post("/api/searchByTree", {
-      rootUser,
-      searchUser: formData.searchUser,
-      searchLimit: formData.searchLimit,
-      sleepTime: numClients * 2000,
-    });
+    try {
+      const { data: comparedFavourites } = await axios.post(
+        "/api/searchByTree",
+        {
+          rootUser,
+          searchUser: formData.searchUser,
+          searchLimit: formData.searchLimit,
+          sleepTime: numClients * 2000,
+        }
+      );
 
-    setSearchTimeMessage(0);
-    socket.emit("end-search");
+      setSearchTimeMessage(0);
+      socket.emit("end-search");
 
-    if (!Array.isArray(comparedFavourites)) {
-      setErrorMessage(comparedFavourites.message);
+      if (!Array.isArray(comparedFavourites)) {
+        setErrorMessage(comparedFavourites.message);
+        setIsLoading(false);
+        return;
+      } else if (comparedFavourites.length == 0) {
+        setFoundNone(true);
+        setIsLoading(false);
+        return;
+      }
+
+      setTreeFavourites(comparedFavourites);
+      setErrorMessage("");
+      setFoundNone(false);
+      setDisplayForm(false);
       setIsLoading(false);
-      return;
-    } else if (comparedFavourites.length == 0) {
-      setFoundNone(true);
-      setIsLoading(false);
-      return;
+    } catch (e) {
+      setErrorMessage(e.message || e);
     }
-
-    setTreeFavourites(comparedFavourites);
-    setErrorMessage("");
-    setFoundNone(false);
-    setDisplayForm(false);
-    setIsLoading(false);
   };
 
   return (
