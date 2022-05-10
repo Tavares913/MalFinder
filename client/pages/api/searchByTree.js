@@ -30,6 +30,8 @@ const searchByTree = async (req, res) => {
   const { rootUser, searchUser, searchLimit, sleepTime } = req.body;
   const rootUserProfileData = await getProfileData(rootUser);
 
+  return res.json({ message: "test" });
+
   if (!rootUserProfileData || !searchLimit) {
     return res.json({
       message:
