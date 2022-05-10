@@ -30,8 +30,6 @@ const searchByTree = async (req, res) => {
   const { rootUser, searchUser, searchLimit, sleepTime } = req.body;
   const rootUserProfileData = await getProfileData(rootUser);
 
-  return res.send("hello");
-
   if (!rootUserProfileData || !searchLimit) {
     return res.json({
       message:
@@ -91,6 +89,8 @@ const searchByTree = async (req, res) => {
     profilesVisited.push(curUserAndCurComparedFavourites);
     removeFirst(queue);
   }
+
+  return res.send("hello");
 
   const sortedComparedFavourites = profilesVisited.sort((elem1, elem2) => {
     if (
