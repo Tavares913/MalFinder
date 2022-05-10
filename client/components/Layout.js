@@ -21,19 +21,21 @@ const Layout = (props) => {
 
       <nav className={classes.navbar}>
         <section className={classes["main-logo"]}>
-          <Link href="/">MalFinder</Link>
+          <Link href="/" passHref>
+            MalFinder
+          </Link>
         </section>
         <section className={classes["navbar-links"]}>
-          <Link href="/home">
+          <Link href="/home" passHref>
             <span className={classes.link}>Home</span>
           </Link>
-          <Link href="/search/byFriendList">
+          <Link href="/search/byFriendList" passHref>
             <span className={classes.link}>Search by Friend List</span>
           </Link>
-          <Link href="/search/byTree">
+          <Link href="/search/byTree" passHref>
             <span className={classes.link}>Search by Tree</span>
           </Link>
-          <Link href="/help">
+          <Link href="/help" passHref>
             <span className={classes.link}>Help</span>
           </Link>
         </section>

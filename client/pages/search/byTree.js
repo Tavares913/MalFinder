@@ -10,7 +10,7 @@ import socket from "../../utils/socketConnect";
 import sleep from "../../utils/sleep";
 import classes from "../../styles/ByTree.module.css";
 
-const byTree = () => {
+const ByTree = () => {
   const [treeFavourites, setTreeFavourites] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [foundNone, setFoundNone] = useState(false);
@@ -97,7 +97,7 @@ const byTree = () => {
       <div className={classes["compared-favourites"]}>
         {treeFavourites.length > 0 &&
           treeFavourites.map((elem, index) => (
-            <ComparedFavourite compared={elem} index={index + 1} />
+            <ComparedFavourite compared={elem} index={index + 1} key={index} />
           ))}
         {foundNone && <p className={classes["found-none"]}>Found none</p>}
         {isLoading && <div className={classes["loading-spinner"]}></div>}
@@ -112,4 +112,4 @@ const byTree = () => {
   );
 };
 
-export default byTree;
+export default ByTree;

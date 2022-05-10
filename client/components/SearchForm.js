@@ -46,7 +46,7 @@ const SearchForm = (props) => {
         onChange={searchLimitChangeHandler}
         ref={searchRangeRef}
       />
-      <div class={errorClasses}>{props.errorMessage}</div>
+      <div className={errorClasses}>{props.errorMessage}</div>
       <button>Submit</button>
     </form>
   );

@@ -11,16 +11,16 @@ const Help = () => {
       <section>
         <h1>How does the searching work?</h1>
         <p>
-          The searching is currently based on pepople's favourites, and maybe
-          I'll implement searching based on their anime/manga lists later.
-          People's favourties are scraped from their profile pages, and compared
-          to one another. Doing so sends one request to mal per user, which is
-          why the searches may take some time. It's the time between each
-          request is currently set to (2 seconds) * (the number of people
-          currently searching at the time of search initiation). This means that
-          if you begin a search with a limit of 20 people while 4 others are
-          still searching, it'll take 80 seconds + request time to mal (probably
-          another (search limit / 3) seconds).
+          The searching is currently based on pepople&apos;s favourites, and
+          maybe I&apos;ll implement searching based on their anime/manga lists
+          later. People&apos;s favourties are scraped from their profile pages,
+          and compared to one another. Doing so sends one request to mal per
+          user, which is why the searches may take some time. It&apos;s the time
+          between each request is currently set to (2 seconds) * (the number of
+          people currently searching at the time of search initiation). This
+          means that if you begin a search with a limit of 20 people while 4
+          others are still searching, it&apos;ll take 80 seconds + request time
+          to mal (probably another (search limit / 3) seconds).
         </p>
       </section>
       <section>
@@ -36,9 +36,9 @@ const Help = () => {
         <h1>Tree search:</h1>
         <p>
           This search function compares your favourties to a user, then goes
-          into all of their friends and compares their friends' favourtites to
-          yours, then goes into those people's friends, etc. It's a breadth
-          first search.
+          into all of their friends and compares their friends&apos; favourtites
+          to yours, then goes into those people&apos;s friends, etc. It&apos;s a
+          breadth first search.
         </p>
       </section>
     </div>

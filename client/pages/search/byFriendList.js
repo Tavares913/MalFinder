@@ -10,7 +10,7 @@ import socket from "../../utils/socketConnect";
 import classes from "../../styles/ByFriendList.module.css";
 import sleep from "../../utils/sleep";
 
-const byFriendList = () => {
+const ByFriendList = () => {
   const [friendFavourites, setFriendFavourites] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [foundNone, setFoundNone] = useState(false);
@@ -100,7 +100,7 @@ const byFriendList = () => {
       <div className={classes["compared-favourites"]}>
         {friendFavourites.length > 0 &&
           friendFavourites.map((elem, index) => (
-            <ComparedFavourite compared={elem} index={index + 1} />
+            <ComparedFavourite compared={elem} index={index + 1} key={index} />
           ))}
         {foundNone && <p className={classes["found-none"]}>Found none</p>}
         {isLoading && <div className={classes["loading-spinner"]}></div>}
@@ -115,4 +115,4 @@ const byFriendList = () => {
   );
 };
 
-export default byFriendList;
+export default ByFriendList;
