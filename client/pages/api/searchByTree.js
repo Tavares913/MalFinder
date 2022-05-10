@@ -27,12 +27,10 @@ const swap = (arr, a, b) => {
 };
 
 const searchByTree = async (req, res) => {
-  console.log("request has reached me");
-  if (req.method != "POST") {
-    return res.send("hello");
-  }
   const { rootUser, searchUser, searchLimit, sleepTime } = req.body;
   const rootUserProfileData = await getProfileData(rootUser);
+
+  return res.send("hello");
 
   if (!rootUserProfileData || !searchLimit) {
     return res.json({
