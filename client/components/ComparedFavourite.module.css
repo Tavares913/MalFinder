@@ -1,0 +1,61 @@
+.main {
+  margin: 2% 1% 0 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgb(93, 210, 227, 0.5);
+}
+
+.main section:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 800;
+}
+
+.main section span {
+  font-size: 2rem;
+}
+
+.total-same-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total-same-button span {
+  white-space: nowrap;
+  margin-right: 1rem;
+}
+
+.total-same-button button {
+  border: 0.1rem solid rgb(50, 54, 49);
+  border-radius: 50%;
+  transition-property: font-size;
+  transition-duration: 0.5s;
+}
+
+.total-same-button button:hover {
+  font-size: 1.5rem;
+}
+
+.profile-link {
+  font-size: 1.5rem;
+  color: blue;
+  font-weight: 600;
+}
+
+.profile-link:hover {
+  border-bottom: 0.1rem solid blue;
+}
+
+.details-info h2 {
+  font-size: 1.3rem;
+}
+
+.invisible {
+  display: none;
+}
+
+.summary-info,
+.details-info {
+  margin-left: 1%;
+}

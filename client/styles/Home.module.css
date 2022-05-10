@@ -1,0 +1,31 @@
+.main {
+  display: block;
+  text-align: center;
+}
+
+.main h1 {
+  margin: 5% 0 0 0;
+}
+
+.search-methods {
+  display: flex;
+  justify-content: space-around;
+  margin: 5% 0 0 0;
+}
+
+.search-methods div {
+  border: 1% solid blue;
+  background-color: lightblue;
+  margin: 0 2% 0 2%;
+  padding: 2% 2% 2% 2%;
+  width: 40%;
+}
+
+.search-methods span {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.search-methods span:hover {
+  border-bottom: 1px solid purple;
+}

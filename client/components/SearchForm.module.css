@@ -1,0 +1,47 @@
+.form {
+  font-size: 1.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.form label {
+  display: block;
+  margin-top: 2%;
+}
+
+.form input {
+  width: 25%;
+  height: 2rem;
+}
+
+.user-input {
+  margin-top: 2%;
+}
+
+.form input:nth-child(1) {
+  margin-top: 50%;
+}
+
+.form button {
+  display: block;
+  border: 0.5rem solid #cbc3e3;
+  background-color: #cbc3e3;
+  color: black;
+  border-radius: 10%;
+  margin-top: 2%;
+}
+
+.error {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: red;
+  margin-top: 2%;
+}
+
+.invisible {
+  display: none;
+}

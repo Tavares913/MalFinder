@@ -1,0 +1,47 @@
+.compared-favourites {
+  overflow: auto;
+}
+
+.error {
+  margin: 0.1rem 0 1rem 0;
+  color: red;
+}
+
+.found-none {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.invisible {
+  display: none;
+}
+
+.compared-favourites p {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+}
+
+.loading-spinner::after {
+  content: "";
+  width: 3rem;
+  height: 3rem;
+  background: white;
+  border: 1rem solid #ae84e0;
+  border-top-color: #583e78;
+  border-bottom-color: #583e78;
+  border-radius: 50%;
+  animation: loading 1s linear infinite;
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(1turn);
+  }
+}
