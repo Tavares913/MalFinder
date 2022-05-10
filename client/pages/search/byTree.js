@@ -57,26 +57,7 @@ const ByTree = () => {
     }
 
     try {
-      const response = await axios.get("/api/searchByTree");
-      console.log(response);
-      JSON.stringify(response);
-      console.log(response);
-      const response2 = await fetch("/api/searchByTree", {
-        method: "POST",
-        mode: "cors",
-      });
-      console.log(response2);
-      const response3 = await fetch("/api/searchByTree", {
-        method: "POST",
-        mode: "same-origin",
-      });
-      console.log(response3);
-      const response4 = await fetch("/api/searchByTree", {
-        method: "GET",
-      });
-      console.log(response4);
-      return;
-      const { data: comparedFavourites } = await axios.post(
+      const { data: comparedFavourites } = await axios.get(
         "/api/searchByTree",
         {
           rootUser,

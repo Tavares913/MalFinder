@@ -27,8 +27,6 @@ const swap = (arr, a, b) => {
 };
 
 const searchByTree = async (req, res) => {
-  return res.json({ message: "test" });
-
   const { rootUser, searchUser, searchLimit, sleepTime } = req.body;
   const rootUserProfileData = await getProfileData(rootUser);
 
