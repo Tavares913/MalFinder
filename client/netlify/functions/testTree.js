@@ -1,8 +1,7 @@
-const getProfileData = require("../../utils/profileData/getProfileData")
-const getFavourites = require('../../utils/profileData/getFavourites');
-const sameFavourites = require("../../utils/compareFavourites/sameFavourites")
-const getFriendsFromProfile = require("../../utils/profileData/getFriendsFromProfile")
-
+const getProfileData = require("../../utils/profileData/getProfileData");
+const getFavourites = require("../../utils/profileData/getFavourites");
+const sameFavourites = require("../../utils/compareFavourites/sameFavourites");
+const getFriendsFromProfile = require("../../utils/profileData/getFriendsFromProfile");
 
 const profilesVisistedContainsUser = (profilesVisited, friend) => {
   for (let profile of profilesVisited) {
@@ -26,22 +25,18 @@ const swap = (arr, a, b) => {
   arr[b] = temp;
 };
 
+const testTree = async () => {
+  const rootUser = "Tavares913";
+  const searchUser = "snoopydragon";
+  const searchLimit = 2;
 
+  const rootUserProfileData = await getProfileData(rootUser);
 
+  console.log("after first profile data");
 
-const testTree = () => {
-    const rootUser = "Tavares913";
-    const searchUser = "snoopydragon";
-    const searchLimit = 2;
+  const rootUserFavourites = getFavourites(rootUserProfileData);
 
-    const rootUserProfileData = await getProfileData(rootUser);
-
-    console.log('after first profile data');
-
-
-    const rootUserFavourites = getFavourites(rootUserProfileData);
-    
-    console.log("after first get favourites");
+  console.log("after first get favourites");
 
   const queue = [];
   const profilesVisited = [];
@@ -91,8 +86,8 @@ const testTree = () => {
     profilesVisited.push(curUserAndCurComparedFavourites);
     removeFirst(queue);
   }
-    
-    console.log("after loop");
+
+  console.log("after loop");
 
   const sortedComparedFavourites = profilesVisited.sort((elem1, elem2) => {
     if (
@@ -103,8 +98,7 @@ const testTree = () => {
     return 1;
   });
 
-    console.log(sortedComparedFavourites);
-}
-
+  console.log("final result: " + sortedComparedFavourites);
+};
 
 exports.handler = testTree;
