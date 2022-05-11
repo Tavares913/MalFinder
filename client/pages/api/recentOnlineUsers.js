@@ -7,9 +7,9 @@ const getRecentOnlineUsersHandler = async (req, res) => {
 
   const recentUsers = $("td.borderClass")
     .text()
-    .replaceAll(" ", "")
-    .replaceAll("\n", "")
-    .replaceAll(/\dseconds?ago/g, " ")
+    .replace(/ /g, "")
+    .replace(/\n/g, "")
+    .replace(/\dseconds?ago/g, " ")
     .split(" ");
 
   recentUsers.pop();

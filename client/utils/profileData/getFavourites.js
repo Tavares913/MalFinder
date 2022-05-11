@@ -48,16 +48,11 @@ const makeFavObj = (favArr) => {
 
 // Returns an object of the user's favourites given the raw profile data
 const getFavourites = ($) => {
-  console.log(process.version);
-  const test = "test";
-  const testString = test.replace("t", "f");
-  console.log(testString);
-
   const strFavs = $("div[class='container-right']")
     .text()
-    .replaceAll("\n", "")
-    .replaceAll(/ {2,}/g, "  ")
-    .replaceAll(/.+?(?=Favorites)/g, "")
+    .replace(/\n/g, "")
+    .replace(/ {2,}/g, "  ")
+    .replace(/.+?(?=Favorites)/g, "")
     .replace("Favorites ", "")
     .split("  ");
 

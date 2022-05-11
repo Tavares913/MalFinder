@@ -2,16 +2,16 @@
 const getFriendsFromFriends = ($) => {
   const friendsArr = $("div[class='boxlist-container friend mb16']")
     .text()
-    .replaceAll("\n\n", "")
-    .replaceAll(" ", "")
-    .replaceAll(
+    .replace(/\n\n/g, "")
+    .replace(/ /g, "")
+    .replace(
       /(\d\d?minutes?ago)|(Friendssince...\d\d?,(\d\d\d\d)?\d\d?:\d\d(A|P)M)|(\d\d?hours?ago)|(Friendssince(Yesterday|(\d days ago)),\d\d?:\d\d(A|P)M)|((Yesterday|(\d days ago)),\d\d?:\d\d(A|P)M)|(...\d\d?,\d\d?:\d\d(A|P)M)|(...\d\d?,\d\d\d\d\d\d?:\d\d(A|P)M)/g,
       ""
     )
-    .replaceAll("\n\n", " ")
+    .replace(/\n\n/g, " ")
     .trim()
-    .replaceAll("\n", " ")
-    .replaceAll("  ", "")
+    .replace(/\n/g, " ")
+    .replace(/  /g, "")
     .split(" ");
 
   return friendsArr;
