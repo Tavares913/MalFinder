@@ -2,6 +2,7 @@ const getProfileData = require("../../utils/profileData/getProfileData");
 const getFavourites = require("../../utils/profileData/getFavourites");
 const sameFavourites = require("../../utils/compareFavourites/sameFavourites");
 const getFriendsFromProfile = require("../../utils/profileData/getFriendsFromProfile");
+const sleep = require("../../utils/sleep");
 
 const profilesVisistedContainsUser = (profilesVisited, friend) => {
   for (let profile of profilesVisited) {
@@ -29,6 +30,7 @@ const testTree = async () => {
   const rootUser = "Tavares913";
   const searchUser = "snoopydragon";
   const searchLimit = 5;
+  const sleepTime = 1000;
 
   const rootUserProfileData = await getProfileData(rootUser);
 
@@ -56,6 +58,8 @@ const testTree = async () => {
       removeFirst(queue);
       continue;
     }
+
+    await sleep(sleepTime || 2000);
 
     const curUserProfileData = await getProfileData(curUser);
     if (!curUserProfileData) {
