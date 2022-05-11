@@ -1,8 +1,8 @@
-const getProfileData = require("../../utils/profileData/getProfileData");
-const getFavourites = require("../../utils/profileData/getFavourites");
-const sameFavourites = require("../../utils/compareFavourites/sameFavourites");
-const getFriendsFromProfile = require("../../utils/profileData/getFriendsFromProfile");
-const sleep = require("../../utils/sleep");
+const getProfileData = require("../../utils/profileData/getProfileData")
+const getFavourites = require('../../utils/profileData/getFavourites');
+const sameFavourites = require("../../utils/compareFavourites/sameFavourites")
+const getFriendsFromProfile = require("../../utils/profileData/getFriendsFromProfile")
+
 
 const profilesVisistedContainsUser = (profilesVisited, friend) => {
   for (let profile of profilesVisited) {
@@ -26,18 +26,22 @@ const swap = (arr, a, b) => {
   arr[b] = temp;
 };
 
-const searchByTree = async (req, res) => {
-  const { rootUser, searchUser, searchLimit, sleepTime } = req.body;
-  const rootUserProfileData = await getProfileData(rootUser);
 
-  if (!rootUserProfileData || !searchLimit) {
-    return res.json({
-      message:
-        "Couldn't perform search. Please verify that you entered your username and search limit correctly.",
-    });
-  }
 
-  const rootUserFavourites = getFavourites(rootUserProfileData);
+
+const testTree = () => {
+    const rootUser = "Tavares913";
+    const searchUser = "snoopydragon";
+    const searchLimit = 2;
+
+    const rootUserProfileData = await getProfileData(rootUser);
+
+    console.log('after first profile data');
+
+
+    const rootUserFavourites = getFavourites(rootUserProfileData);
+    
+    console.log("after first get favourites");
 
   const queue = [];
   const profilesVisited = [];
@@ -57,8 +61,6 @@ const searchByTree = async (req, res) => {
       removeFirst(queue);
       continue;
     }
-
-    await sleep(sleepTime || 2000);
 
     const curUserProfileData = await getProfileData(curUser);
     if (!curUserProfileData) {
@@ -89,6 +91,8 @@ const searchByTree = async (req, res) => {
     profilesVisited.push(curUserAndCurComparedFavourites);
     removeFirst(queue);
   }
+    
+    console.log("after loop");
 
   const sortedComparedFavourites = profilesVisited.sort((elem1, elem2) => {
     if (
@@ -99,7 +103,8 @@ const searchByTree = async (req, res) => {
     return 1;
   });
 
-  return res.json(sortedComparedFavourites);
-};
+    console.log(sortedComparedFavourites);
+}
 
-export default searchByTree;
+
+exports.handler = testTree;

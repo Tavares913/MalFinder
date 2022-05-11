@@ -63,9 +63,6 @@ const ByTree = () => {
         searchLimit: 1,
         sleepTime: 1000,
       });
-      console.log(response1);
-
-      return;
 
       const { data: comparedFavourites } = await axios.post(
         "/api/searchByTree",
