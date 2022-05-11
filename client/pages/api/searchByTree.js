@@ -30,7 +30,6 @@ const searchByTree = async (req, res) => {
   const { rootUser, searchUser, searchLimit, sleepTime } = req.body;
   const rootUserProfileData = await getProfileData(rootUser);
   console.log(rootUserProfileData);
-  return res.json({ message: "made it here" });
 
   if (!rootUserProfileData || !searchLimit) {
     return res.json({
@@ -40,6 +39,8 @@ const searchByTree = async (req, res) => {
   }
 
   const rootUserFavourites = getFavourites(rootUserProfileData);
+
+  return res.json({ message: "made it here" });
 
   const queue = [];
   const profilesVisited = [];
