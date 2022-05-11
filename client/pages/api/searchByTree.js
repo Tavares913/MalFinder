@@ -27,9 +27,11 @@ const swap = (arr, a, b) => {
 };
 
 const searchByTree = async (req, res) => {
+  console.log("LOGGING TO THE CONSOLE");
+  return res.json({ message: "test" });
+
   const { rootUser, searchUser, searchLimit, sleepTime } = req.body;
   const rootUserProfileData = await getProfileData(rootUser);
-  console.log(rootUserProfileData);
 
   if (!rootUserProfileData || !searchLimit) {
     return res.json({
@@ -39,8 +41,6 @@ const searchByTree = async (req, res) => {
   }
 
   const rootUserFavourites = getFavourites(rootUserProfileData);
-
-  return res.json({ message: "made it here" });
 
   const queue = [];
   const profilesVisited = [];
@@ -92,9 +92,6 @@ const searchByTree = async (req, res) => {
     profilesVisited.push(curUserAndCurComparedFavourites);
     removeFirst(queue);
   }
-
-  console.log("arrived here");
-  return res.send("hello");
 
   const sortedComparedFavourites = profilesVisited.sort((elem1, elem2) => {
     if (

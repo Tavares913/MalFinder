@@ -1,5 +1,3 @@
-const cheerio = require("cheerio");
-
 // removeComments() removes all of the comments from an array of page elements
 const removeComments = (favArr) => {
   let result = [];
