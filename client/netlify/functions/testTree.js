@@ -103,6 +103,11 @@ const testTree = async () => {
   });
 
   console.log("final result: " + sortedComparedFavourites);
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ data: sortedComparedFavourites }),
+  };
 };
 
 exports.handler = testTree;
