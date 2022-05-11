@@ -44,6 +44,8 @@ const searchByTree = async (req, res) => {
 
   queue.push(searchUser);
 
+  return res.json({ message: "made it here" });
+
   while (queue.length !== 0) {
     if (profilesVisited.length >= searchLimit) {
       break;
