@@ -28,7 +28,7 @@ const swap = (arr, a, b) => {
 const testTree = async () => {
   const rootUser = "Tavares913";
   const searchUser = "snoopydragon";
-  const searchLimit = 2;
+  const searchLimit = 5;
 
   const rootUserProfileData = await getProfileData(rootUser);
 
