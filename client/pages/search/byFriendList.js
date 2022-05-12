@@ -56,34 +56,39 @@ const ByFriendList = () => {
       return;
     }
 
-    const { data: friendsAndFavourites } = await axios.post(
-      "/api/searchByFriend",
-      {
-        rootUser,
-        searchUser: formData.searchUser,
-        searchLimit: formData.searchLimit,
-        sleepTime: numClients * 2000,
+    try {
+      const { data: friendsAndFavourites } = await axios.post(
+        "/api/searchByFriend",
+        {
+          rootUser,
+          searchUser: formData.searchUser,
+          searchLimit: formData.searchLimit,
+          sleepTime: numClients * 2000,
+        }
+      );
+
+      setSearchTimeMessage(0);
+      socket.emit("end-search");
+
+      if (!Array.isArray(friendsAndFavourites)) {
+        setErrorMessage(friendsAndFavourites.message);
+        setIsLoading(false);
+        return;
+      } else if (friendsAndFavourites.length == 0) {
+        setFoundNone(true);
+        setIsLoading(false);
+        return;
       }
-    );
 
-    setSearchTimeMessage(0);
-    socket.emit("end-search");
-
-    if (!Array.isArray(friendsAndFavourites)) {
-      setErrorMessage(friendsAndFavourites.message);
+      setFriendFavourites(friendsAndFavourites);
+      setErrorMessage("");
+      setFoundNone(false);
+      setDisplayForm(false);
       setIsLoading(false);
-      return;
-    } else if (friendsAndFavourites.length == 0) {
-      setFoundNone(true);
-      setIsLoading(false);
-      return;
+    } catch (e) {
+      console.log(e);
+      setErrorMessage(e.message);
     }
-
-    setFriendFavourites(friendsAndFavourites);
-    setErrorMessage("");
-    setFoundNone(false);
-    setDisplayForm(false);
-    setIsLoading(false);
   };
 
   return (
